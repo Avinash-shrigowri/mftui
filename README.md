@@ -23,6 +23,7 @@ cd to mftui
 npm install && npm start
 
 ```
+Open your browser and navigate to http://localhost:4200
 
 ## Deployment
 
