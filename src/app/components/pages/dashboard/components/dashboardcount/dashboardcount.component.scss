@@ -1,0 +1,86 @@
+.bg-blue{
+	color: #fff;
+    border-color: #3dc4f5;
+    background: #5bccf6;
+}
+.tile-box-alt .tile-header {
+    padding: 10px;
+    text-align: center;
+}
+.tile-content-wrapper {
+    position: relative;
+    overflow: hidden;
+    padding: 10px 10px 17px;
+}
+.tile-box-alt .tile-content-wrapper>.glyph-icon {
+    font-size: 65px;
+    margin-top: -32px;
+}
+.tile-content {
+    font-size: 35px;
+    text-align: right;
+}
+.font-red{
+	    color: #ff5757!important;
+}
+.tile-content-wrapper small {
+    font-size: 14px;
+    display: block;
+    text-align: right;
+    opacity: .7;
+    -moz-opacity: .7;
+    //filter: alpha(opacity:70);
+}
+.bg-green{
+	color: #fff;
+    border-color: #8eca3f;
+    background: #9cd159;
+}
+.bg-orange{
+	color: #fff;
+    border-color: #FF5722;
+    background: #FF5722;
+}
+.font-green{
+    color: #9cd159!important;
+}
+.tile-content span {
+    font-size: 25px;
+    opacity: .7;
+    -moz-opacity: .7;
+    //filter: alpha(opacity:70);
+}
+.bg-red{
+	color: #fff;
+    border-color: #FBB83A;
+    background: #FBB83A;
+}
+.tile-footer {
+    display: block;
+    margin: 0 -1px -1px;
+    padding: 5px 10px;
+    text-align: left;
+    color: inherit;
+    background: rgba(0,0,0,.1);
+}
+.tile-footer .fa{
+	float:right;
+}
+.tile-content-wrapper>.fa {
+    font-size: 60px;
+    line-height: 70px;
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    height: 70px;
+    margin-top: -50px;
+    opacity: .3;
+    -moz-opacity: .3;
+   
+}
+svg{
+	max-width: 100%;
+}
+.float-left a{
+	color:#fff;
+}
