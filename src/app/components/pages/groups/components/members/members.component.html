@@ -1,0 +1,93 @@
+<div class="container" *ngIf="sharedservice.sharedgroupobj">
+  <div class="panel panel-default">
+    <div class="panel-heading">{{sharedservice.sharedgroupobj.name}} Members
+      <div class="pull-right"><button class="btn btn-info btn-sm" (click)="add()"><i class="fa fa-plus" ></i>&nbsp;Add</button></div>
+    </div>
+    <div class="panel-body">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Role</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let member of members">
+            <td>{{member.firstName}}</td>
+           
+            <td>{{member.role}}</td>
+              	<td style="position: relative;">
+						<div dropdown><button class="btn btn-sm btn-infor" dropdownToggle><i class="fa fa-ellipsis-v" aria-hidden="true" ></i></button>
+							<ul *dropdownMenu class="dropdown-menu" role="menu">
+								<li role="menuitem"  (click)="update(member)"><a class="dropdown-item">Information</a></li>
+                <li role="menuitem" (click)="edit(member)"><a class="dropdown-item">Edit</a></li>
+                	<li role="menuitem" (click)="delete(member)"><a class="dropdown-item">Delete</a></li>
+                 	
+							</ul>
+						</div>
+				
+            </td>
+             
+          </tr>
+          
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div bsModal #lgModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content" *ngIf="memberpayload">
+            <div class="modal-header">
+                <h4 class="modal-title pull-left">Add Member</h4>
+                <button type="button" class="close pull-right" (click)="lgModal.hide()" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+            </div>
+            <form  (ngSubmit)="filesubmit()" ngNativeValidate>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <!-- <div class="form-group" *ngIf="editfile">
+                        <div class="col-xs-12">
+                         <h4> <label>File Name</label>:{{editfile.name}}</h4>
+                        </div>
+                    </div> -->
+                        <div class="form-group ">
+                        <div class="col-xs-12">
+                          <label> Name</label>
+                            <input class="form-control" type="text" required=""  [(ngModel)]="memberpayload.firstName" [ngModelOptions]="{standalone: true}"  >
+                        </div>
+                    </div>
+                        <div class="form-group ">
+                        <div class="col-xs-12">
+                          <label>Email</label>
+                            <input class="form-control" type="text" required="" [(ngModel)]="memberpayload.userMail"  [ngModelOptions]="{standalone: true}"  >
+                        </div>
+                    </div>
+                        <div class="form-group ">
+                        <div class="col-xs-12">
+                          <label>Role</label>
+                            <input class="form-control" type="text" required=""  [(ngModel)]="memberpayload.role"  [ngModelOptions]="{standalone: true}"  >
+                        </div>
+                    </div>
+                        <div class="form-group ">
+                        <div class="col-xs-12">
+                          <label>Domain Id</label>
+                            <input class="form-control" type="text" required=""  [(ngModel)]="memberpayload.userDomainId"  [ngModelOptions]="{standalone: true}"  >
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="col-xs-12">
+                        <button class="btn   btn-primary" type="submit">Save</button>
+                        <!-- btn-info -->
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+  

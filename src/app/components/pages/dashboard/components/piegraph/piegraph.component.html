@@ -1,0 +1,13 @@
+<div  style="display: block;">
+  <div class="panel panel-default">
+    <div class="panel-heading panel-heading1 ">
+      <h4 class="panel-title">Usage Details
+        <button type="button" class="close clickable" data-effect="slideUp">&times;</button>
+      </h4>
+    </div>
+    <div class="panel-body">
+      <canvas baseChart  width="400" height="200" [data]="pieChartData" [labels]="pieChartLabels" [chartType]="pieChartType" (chartHover)="chartHovered($event)"
+        (chartClick)="chartClicked($event)"></canvas>
+    </div>
+  </div>
+</div>

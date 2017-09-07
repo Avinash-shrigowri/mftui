@@ -1,0 +1,45 @@
+<div class="container-fluid">
+    <div class="panel panel-default ">
+
+        <div class="panel-heading">File Explorer
+            <div class="pull-right"><button class="btn btn-info btn-sm" (click)="lgModal.show()"><i class="fa fa-plus" ></i>&nbsp;File</button></div>
+        </div>
+        <div class="panel-body file-explorer">
+
+            <app-sidebar></app-sidebar>
+            <app-explorer></app-explorer>
+
+        </div>
+    </div>
+</div>
+
+<div bsModal #lgModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title pull-left">Upload File</h4>
+                <button type="button" class="close pull-right" (click)="lgModal.hide()" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+            </div>
+            <div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="form-group ">
+                            <div class="col-xs-12">
+                                <input class="form-control" type="file" required="" (change)="changeListener($event)">
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="col-xs-12">
+                        <button class="btn  text-uppercase btn-primary" (click)="filesubmit()" >Upload</button>
+                        <!-- btn-info -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

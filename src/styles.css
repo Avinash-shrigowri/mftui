@@ -1,0 +1,48 @@
+/* You can add global styles to this file, and also import other style files */
+@import './assets/css/bootstrap/css/bootstrap.min.css';
+@import './assets/css/fontawesome/css/font-awesome.min.css';
+@import 'https://npmcdn.com/angular2-toaster@0.5.2-rc.7/lib/toaster.css';
+body {
+    font-family: Poppins,sans-serif;
+    margin: 0;
+    overflow-x: hidden;
+    color: #686868;
+    font-weight: 300;
+}
+h1, h2, h3, h4, h5, h6 {
+    color: #2b2b2b;
+    font-family: Poppins,sans-serif;
+    margin: 10px 0;
+    font-weight: 300;
+}
+::-webkit-scrollbar {
+    width: 12px;
+    background-color: #F5F5F5;
+}
+
+
+::-webkit-scrollbar-thumb {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    background-color: #555;
+}
+    
+
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    background-color: #F5F5F5;
+}
+@media only screen and (max-width: 768px) {
+   .activeMenu {
+            display: block;
+            position: fixed;
+            z-index: 10;
+            top: 50px;
+            bottom: 0;
+            left: 0;
+            padding: 0;
+            max-width: 250px;
+            background-color: #fafafa;
+            box-shadow: 6px 0 6px rgba(0, 0, 0, 0.1);
+            transition: transform .4s cubic-bezier(.25, .8, .25, 1);
+        }
+    }

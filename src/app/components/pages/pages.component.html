@@ -1,0 +1,28 @@
+<app-header (onToggle)="onToggle($event)"></app-header>
+<div class="content col-md-12">
+
+	<nav class="navbar navbar-default sidebar navigation" role="navigation" [ngClass]="{'activeMenu' : toggleState}">
+		<div class="navbar-collapse" id="bs-sidebar-navbar-collapse-1">
+			<ul class="nav navbar-nav side-ul" *ngFor= "let item of menuitems">
+				<li *ngIf="!item.child" (click)="onToggle(true)" ><a routerLinkActive="active"  [routerLink]="item.path">{{item.name}}<span style="font-size:16px;" class="pull-right showopacity fa {{item.icon}}"></span></a></li>
+			
+				 <li *ngIf="item.child" >
+					<a (click)="isCollapsed = !isCollapsed" routerLinkActive="active"  [routerLink]="item.path" class="dropdown-toggle"  data-toggle="dropdown">{{item.name}} <span class="caret"></span><span style="font-size:16px;" class="pull-right  showopacity glyphicon glyphicon-user"></span></a>
+					<ul class="nav navbar-nav block side-ul"   *ngFor= "let subitem of item.child"  (collapsed)="setHeight(el, 0)" (expanded)="setHeight(el, 0);setHeight(el, el.scrollHeight)"
+					 [collapse]="isCollapsed" #el>
+						<li><a routerLinkActive="active"  [routerLink]="subitem.path" >{{subitem.name}}</a></li>
+						
+						
+					</ul>
+				</li> 
+			
+			
+			</ul>
+		</div>
+
+	</nav>
+	<div class="responsive-content">
+		<router-outlet></router-outlet>
+	</div>
+</div>
+<app-footer></app-footer>
