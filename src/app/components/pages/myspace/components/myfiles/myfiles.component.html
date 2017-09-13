@@ -1,0 +1,220 @@
+<!-- <div class="file-side">
+		<aside>
+		
+<tree-view (onNodeSelected)="selectedNode($event)" (onIconSelected)="selectedIcon($event)" (onAdd)="addcatalog($event)" [nodes]="sampleNodes"></tree-view>
+</aside>
+</div> -->
+
+<!-- <div class="file-side  col-md-2" *ngFor="let document of documents">
+			<div class="col-md-12 file-div z-depth-1">
+			<div (click)="downloadthumbnail(document)" class="text-center"><img width="50" height="50" src="assets/icon/{{document.filetype}}.png" onerror="this.src='assets/icon/file.png'">
+			</div>
+			<h5 class="text-center file-name">
+				{{document.name}}
+			</h5>
+			<h5 class="text-center file-name">
+			 <button class="btn btn-sm btn-color">Download</button>
+			</h5>
+		</div>
+    </div> -->
+
+<div class="container-fluid ">
+  <md-toolbar class="z-depth-1 top-toolbar">
+    <button md-button class="add-button" (click)="lgModal.show()"><i class="fa fa-plus fa2x"></i></button>
+  </md-toolbar>
+</div>
+<div class="container-fluid">
+  
+    <div class="padding-none" [ngClass]="{'col-md-8': isDetailShown,'col-md-12': !isDetailShown}">
+      <md-card>
+        <md-table #table>
+          <table class="table table-striped table-hover">
+            <thead>
+              <tr>
+                <th>Files</th>
+                <th></th>
+                <th></th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let document of documents">
+                <td class="pointer-cursor" (click)="showDetails(document)">
+                  <div (click)="downloadthumbnail(document)" class="pull-left">
+                    <img width="50" height="50" src="assets/icon/{{document.filetype}}.png" onerror="this.src='assets/icon/file.png'">                
+                    &nbsp;&nbsp;
+                    <h5 class=" pull-right file-name">
+                      {{document.name}}
+                    </h5>
+                  </div>
+                </td>
+                <td style="position: relative;">
+                  <div dropdown><button class="btn btn-sm btn-infor" dropdownToggle><i class="fa fa-ellipsis-v" aria-hidden="true" ></i></button>
+                    <ul *dropdownMenu class="dropdown-menu" role="menu">
+                      <li role="menuitem"><a class="dropdown-item" (click)="update(document)">Update</a></li>
+                      <li role="menuitem" (click)="rename(document)"><a class="dropdown-item">Rename</a></li>
+
+                    </ul>
+                  </div>
+                </td>
+                <td> 
+                  <button class="btn btn-sm btn-color display-none" (click)="downloaddocument(document)">Download</button>
+                  <a href="{{getdocumenturl(document)}}" class="btn btn-sm btn-color" target="_blank">Download</a>
+                </td>
+
+                <td><button class="btn btn-sm btn-danger" (click)="delete(document)">Delete</button></td>
+              </tr>
+
+            </tbody>
+          </table>
+        </md-table>
+      </md-card>
+    </div>
+    <div class="col-md-4 padding-none fade-in"  [ngClass]="{'show': isDetailShown}" >
+      <md-card  *ngIf="selectedDocument">
+        <div class="position-absolute right-0 top-0 z-index-top">
+          <button class="add-button" (click)="hideDetails()">
+            <i class="fa fa-times" aria-hidden="true"></i>
+          </button>              
+        </div>
+        <div class="row">
+          <div class="col-md-offset-1 col-md-11">
+            <div class="row margin-bottom-10">
+                <div class="col-md-12 text-center">
+                  <img width="100" height="100" src="assets/icon/{{selectedDocument.filetype}}.png" onerror="this.src='assets/icon/file.png'">
+                </div>
+                <div class="col-md-12 text-center">
+                  <h3>{{selectedDocument.name}}</h3>  
+                </div>              
+              </div>
+          </div>
+          <div class="file-detail col-md-offset-1 col-md-11">
+              <div class="row">
+                <div class="col-md-4">Type of file</div>
+                <div class="col-md-8">{{selectedDocument.type}}</div>
+              </div>
+              <div class="row">
+                <div class="col-md-4">Created On</div>
+                <div class="col-md-8">{{selectedDocument.creationDate | date:'medium'}}</div>
+              </div>
+              <div class="row">
+                <div class="col-md-4">Modifed On</div>
+                <div class="col-md-8">{{selectedDocument.modificationDate | date:'medium'}}</div>
+              </div>
+              <div class="row">
+                <div class="col-md-4">Expires On</div>
+                <div class="col-md-8">{{selectedDocument.expirationDate | date:'medium'}}</div>
+              </div>
+              <div class="row">
+                <div class="col-md-4">File Size</div>
+                <!-- <div class="col-md-8">{{selectedDocument.size | filesize}}</div> -->
+                <div class="col-md-8">{{selectedDocument.size}}</div>
+              </div>
+              <div class="row" *ngIf="selectedDocument.description">
+                <div class="col-md-4">Description</div>
+                <div class="col-md-8">{{selectedDocument.description}}</div>
+              </div>
+          </div>
+        </div>
+      </md-card>
+    </div>
+</div>
+
+
+<!-- <div bsModal #lgModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content" *ngIf="editfile">
+      <div class="modal-header">
+        <h4 class="modal-title pull-left">Update File</h4>
+        <button type="button" class="close pull-right" (click)="lgModal.hide()" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div>
+        <div class="modal-body">
+          <div class="container-fluid">
+            <div class="form-group ">
+
+
+              <h5><label>File Name:</label> {{editfile.name}}</h5>
+
+            </div>
+            <div class="form-group ">
+              <label>Change</label>
+
+              <input class="form-control" type="file" required="" (change)="changeListener($event)">
+
+            </div>
+
+          </div>
+        </div>
+        <div class="modal-footer">
+          <div class="col-xs-12">
+            <button class="btn  text-uppercase btn-primary" (click)="updatefile()">Update</button>
+          
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<div bsModal #smModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content" *ngIf="document">
+      <div class="modal-header">
+        <h4 class="modal-title pull-left">Rename File</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="smModal.hide()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form>
+        <div class="modal-body">
+          <div class="form-group ">
+            <label>File Name</label>
+
+            <input class="form-control" type="text" required="" [(ngModel)]="document.name" name="name">
+
+          </div>
+        </div>
+        <div class="modal-footer">
+          <div class="col-xs-12">
+            <button class="btn  text-uppercase btn-primary" (click)="renamefilename()">Update</button>
+            <!-- btn-info -->
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div bsModal #lgModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title pull-left">Upload File</h4>
+        <button type="button" class="close pull-right" (click)="lgModal.hide()" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div>
+        <div class="modal-body">
+          <div class="container-fluid">
+            <div class="form-group ">
+              <div class="col-xs-12">
+                <input class="form-control" type="file" required="" (change)="changeListener($event)">
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <div class="modal-footer">
+          <div class="col-xs-12">
+            <button class="btn  text-uppercase btn-primary" (click)="filesubmit()">Upload</button>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

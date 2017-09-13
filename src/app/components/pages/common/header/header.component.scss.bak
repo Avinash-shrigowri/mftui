@@ -1,0 +1,102 @@
+header {
+    width: 100%;
+    background: linear-gradient(to right, #2a2388, #9556a4);
+    position: fixed;
+    top: 0;
+    height: 60px !important;
+    opacity: .8;
+     z-index: 1000;
+}
+.top-profile li{
+	list-style-type:none;
+}
+.navbar-brand{
+    color:#fff;
+}
+.stylish-input-group .form-control {
+    border-right: 0;
+    box-shadow: 0 0 0;
+    border-color: #ccc;
+     border-radius: 50px 0px 0px 50px;
+}
+.stylish-input-group .input-group-addon {
+    background: white !important;
+}
+.input-group-addon {
+       border-radius: 0px 50px 50px 0px;
+
+}
+.stylish-input-group button {
+    border: 0;
+    background: transparent;
+}
+.download {
+    color: #fff;
+    font-size: 20px;
+    line-height: 55px;
+    cursor: pointer;
+    margin-right: 15px;
+}
+.profile {
+    background: #fff;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 50px;
+    margin: 6px 0;
+}
+.fa-user {
+    font-size: 25px;
+    cursor: pointer;
+}
+.toggle_menu {
+    display: none;
+}
+.gb_lb {
+    border-color: transparent;
+    border-bottom-color: #fff;
+    border-style: dashed dashed solid;
+    border-width: 0 8.5px 8.5px;
+    display: block;
+    position: absolute;
+    left: 130px;
+    top: -7px;
+    z-index: 1;
+    height: 0;
+    width: 0;
+    -webkit-animation: gb__a .2s;
+    animation: gb__a .2s;
+}
+.gb_mb {
+    border-color: transparent;
+    border-style: dashed dashed solid;
+    border-width: 0 8.5px 8.5px;
+    display: block;
+    position: absolute;
+    left: 130px;
+    z-index: 1;
+    height: 0;
+    width: 0;
+    -webkit-animation: gb__a .2s;
+    animation: gb__a .2s;
+    border-bottom-color: #ccc;
+    border-bottom-color: rgba(0,0,0,.2);
+    top: -8px;
+}
+@media only screen and (max-width: 768px){
+ .toggle_menu {
+    outline: none;
+    display: block;
+    float: left;
+    margin-right: 10px;
+    padding: 0;
+    background: 0 0;
+    border: 0;
+    text-align: center;
+    cursor: pointer;
+    color: white;
+    font-size: 22px;
+    margin-top:10px;
+}
+}

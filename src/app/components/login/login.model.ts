@@ -5,5 +5,8 @@ export class LoginModel {
 }
 
 export class RegisterModel {
-    public name:string; public companyName:string ; public emailId:String ;public  phoneNumber:String
+    public name:string; 
+    public companyName:string ; 
+    public emailId:String ;
+    public  phoneNumber:String
 }

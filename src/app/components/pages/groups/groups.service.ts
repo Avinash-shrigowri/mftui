@@ -19,11 +19,11 @@ export class GroupsService {
             .catch(this.handleError);
 
     }
-    public addgroup(data): Observable<Response> {
+    public  addgroup(data): Observable<Response> {
         if (!data.uuid) {
-            let name = data.name;
+           
             let url: string = '' + this.constants.baseUrl + this.constants.groupLists;
-            return this.httpClient.Post(url, name);
+            return this.httpClient.Post(url, data);
         } else {
             let url: string = '' + this.constants.baseUrl + this.constants.groupLists + data.uuid;
             return this.httpClient.Put(url, data);
@@ -35,11 +35,13 @@ export class GroupsService {
 
     }
     //to get files of groups
-    setRootPage(uuid: string, name: string) {
+   public  setRootPage(uuid: string, name: string) {
+         window.console.log(uuid);
         let groupdata = {
             uuid: uuid,
             name: name
         };
+        window.console.log("hitted");
         this.rootSubject.next(groupdata);
     }
     public getentries(data): Observable<Response> {

@@ -1,9 +1,10 @@
 import { Component, OnInit,ViewChild } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute, Params } from '@angular/router';
+import { LocalStorageService } from 'ngx-webstorage';
 import { NgProgressService } from "ng2-progressbar";
 import { ToasterService } from 'angular2-toaster';
 import { GroupsService } from '../../groups.service';
-import { CommonService } from '../../../../../services/common.service';
+import { SharedService } from '../../../../../services/shared.service';
 @Component({
   selector: 'app-members',
   templateUrl: './members.component.html',
@@ -12,13 +13,21 @@ import { CommonService } from '../../../../../services/common.service';
 export class MembersComponent implements OnInit {
    public members:any;
    public memberpayload:any;
+  public Uuid:any;
+  public Groupname:string;
+   private parametersObservable: any;
   @ViewChild('lgModal') lgModal;
   @ViewChild('smModal') smModal;
-  constructor(private router: Router, private sharedservice: CommonService, private groupservice: GroupsService, private pService: NgProgressService, private toasterService: ToasterService) { }
+  constructor(private router: Router,private route: ActivatedRoute, private sharedservice: SharedService, private groupservice: GroupsService,private localstorage:LocalStorageService, private pService: NgProgressService, private toasterService: ToasterService) { }
 
   ngOnInit() {
-   if (this.sharedservice.sharedgroupobj) {
-      this.getallmembers(this.sharedservice.sharedgroupobj.uuid);
+     this.Groupname= this.localstorage.retrieve('groupname');
+      this.parametersObservable = this.route.params.forEach(
+        (params:Params)=>{
+          this.Uuid=params['id'];
+        });
+
+      this.getallmembers(this.Uuid);
        this.memberpayload= {
          firstName:'',
          userMail:'',
@@ -26,11 +35,8 @@ export class MembersComponent implements OnInit {
          userDomainId:''
        }
     }
-    else {
-      this.router.navigate(['pages/groups']);
-    }
- 
-  }
+  
+  
   private getallmembers(data) {
     this.pService.start();
     this.groupservice.getmembers(data).finally(() => { this.pService.done(); }).subscribe(
@@ -53,9 +59,9 @@ export class MembersComponent implements OnInit {
 
     public filesubmit() {
     this.pService.start();
-    this.groupservice.postmember(this.memberpayload, this.sharedservice.sharedgroupobj.uuid).finally(() => { this.pService.done(); }).subscribe(
+    this.groupservice.postmember(this.memberpayload, this.Uuid).finally(() => { this.pService.done(); }).subscribe(
       response => {
-        this.getallmembers(this.sharedservice.sharedgroupobj.uuid);
+        this.getallmembers(this.Uuid);
         this.toasterService.pop("success", "success", "Member added Successfully");
       },
       error => {
@@ -67,9 +73,9 @@ export class MembersComponent implements OnInit {
 
   public delete(member){
     this.pService.done()
-    this.groupservice.deletemember(member,this.sharedservice.sharedgroupobj.uuid).finally(()=>{this.pService.done();}).subscribe(
+    this.groupservice.deletemember(member,this.Uuid).finally(()=>{this.pService.done();}).subscribe(
       response => {
-        this.getallmembers(this.sharedservice.sharedgroupobj.uuid);
+        this.getallmembers(this.Uuid);
         this.toasterService.pop("success", "success", "Member Deleted Successfully");
       },
       error => {

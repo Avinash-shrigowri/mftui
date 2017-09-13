@@ -1,10 +1,11 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import {Router} from '@angular/router';
+import { Router } from '@angular/router';
 import { NgProgressService } from "ng2-progressbar";
 import { ToasterService } from 'angular2-toaster';
+import { LocalStorageService } from 'ngx-webstorage';
 import { GroupsService } from '../../groups.service';
 import { Subscription } from 'rxjs';
-import { CommonService } from '../../../../../services/common.service';
+import { SharedService } from '../../../../../services/shared.service';
 
 @Component({
   selector: 'app-grouplist',
@@ -14,11 +15,12 @@ import { CommonService } from '../../../../../services/common.service';
 export class GrouplistComponent implements OnInit {
   public grouplists: any;
   public rootSubjectSubscription: Subscription;
+  public   contenteditable:boolean = false;
 
   @ViewChild('lgModal') lgModal;
   public groupmodel: any;
 
-  constructor(private router:Router, private sharedservice:CommonService, private groupservice: GroupsService, private pService: NgProgressService, private toasterService: ToasterService) { }
+  constructor(private router: Router, private sharedservice: SharedService, private groupservice: GroupsService, private pService: NgProgressService, private toasterService: ToasterService,private localstorage:LocalStorageService) { }
 
   ngOnInit() {
     this.getgrouplist();
@@ -32,7 +34,7 @@ export class GrouplistComponent implements OnInit {
       uuid: ''
     }
   }
-  
+
   private getgrouplist() {
     this.pService.start();
     this.groupservice.getgroups().finally(() => { this.pService.done(); }).subscribe(
@@ -43,15 +45,16 @@ export class GrouplistComponent implements OnInit {
 
       });
   }
-  public add(data) {
-    
-     this.groupmodel={};
+  public add() {
+
+    this.groupmodel = {};
     this.lgModal.show();
   }
   public edit(contact) {
-    this.groupmodel = contact;
+     // this.contenteditable=!this.contenteditable;
+   this.groupmodel = contact;
 
-    this.lgModal.show();
+   this.lgModal.show();
   }
   public adduser() {
 
@@ -80,16 +83,17 @@ export class GrouplistComponent implements OnInit {
     );
   }
 
-  public view(group){
-  //this.groupservice.setRootPage(group.uuid, group.name);
-  this.sharedservice.sharedgroupobj=group;
-   this.router.navigate(['pages/groups/groupfiles']);
+  public view(group) {
+    this.localstorage.store("groupname",group.name);
+    this.router.navigate(['pages/groups/groupfiles',group.uuid]);
   }
-  public member(group){
-  //this.groupservice.setRootPage(group.uuid, group.name);
-  this.sharedservice.sharedgroupobj=group;
-   this.router.navigate(['pages/groups/members']);
+  public member(group) {
+   
+    this.router.navigate(['pages/groups/members',group.uuid]);
   }
-    
+ private onRowClick(event, id){
+    console.log(event.target.outerText, id);
+     this.contenteditable=!this.contenteditable;
+  }
 
 }

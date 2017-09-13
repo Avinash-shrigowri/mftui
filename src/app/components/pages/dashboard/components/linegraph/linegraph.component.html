@@ -1,14 +1,10 @@
-<div style="display: block;">
-  <div class="panel panel-default">
-    <div class="panel-heading panel-heading1 ">
-      <h4 class="panel-title">Usage Details
-        <button type="button" class="close clickable" data-effect="slideUp">&times;</button>
-      </h4>
-    </div>
-    <div class="panel-body">
+<div style="display: block;     margin-top: 10px;">
+  <md-card>
+    <md-card-title>User Details</md-card-title>
+    <md-card-content>
       <canvas baseChart width="400" height="200" [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions"
         [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType" (chartHover)="chartHovered($event)"
         (chartClick)="chartClicked($event)"></canvas>
-    </div>
-  </div>
+    </md-card-content>
+  </md-card>
 </div>

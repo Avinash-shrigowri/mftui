@@ -14,7 +14,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let group of grouplists">
+          <tr *ngFor="let group of guestlist">
             <td>{{group.name}}</td>
             <td><button class="btn btn-sm btn-info" (click)="edit(group)">Edit</button></td>
             <td><button class="btn btn-sm btn-danger" (click)="delete(group)">Delete</button></td>

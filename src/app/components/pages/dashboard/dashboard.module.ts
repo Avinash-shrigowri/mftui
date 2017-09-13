@@ -8,13 +8,18 @@ import { DashboardcountComponent } from './components/dashboardcount/dashboardco
 import { LinegraphComponent } from './components/linegraph/linegraph.component';
 import { PiegraphComponent } from './components/piegraph/piegraph.component';
 import { ActivityComponent } from './components/activity/activity.component';
-
+import { MdCardModule, MdRadioModule, MdInputModule, MdButtonModule, MdCheckboxModule } from '@angular/material';
 @NgModule({
   imports: [
     CommonModule,
     ChartsModule,
     DragulaModule,
-    routing
+    routing,
+    MdCardModule,
+    MdRadioModule,
+    MdInputModule,
+    MdButtonModule,
+    MdCheckboxModule,
   ],
   declarations: [DashboardComponent,DashboardcountComponent, LinegraphComponent, PiegraphComponent, ActivityComponent]
 })

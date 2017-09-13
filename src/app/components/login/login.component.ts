@@ -52,7 +52,7 @@ export class Login implements OnInit {
     public register(){
         //window.console.log(this.registermodel);
            this.pService.start();
-        this.loginservice.postdemorequest(this.registermodel).finally(()=>{this.pService.done();}).subscribe(
+        this.loginservice.postregister(this.registermodel).finally(()=>{this.pService.done();}).subscribe(
             response =>{
                this.toasterService.pop("success","Registration Successfull Please wait for admin approval");
             },

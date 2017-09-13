@@ -10,8 +10,8 @@ const routes: Routes = [{
         children: [
                  { path: '', component: GrouplistComponent},
                 { path: 'grouplist',  component: GrouplistComponent},
-                { path: 'groupfiles', component: GroupfilesComponent},
-                { path: 'members',    component: MembersComponent}
+                { path: 'groupfiles/:id', component: GroupfilesComponent},
+                { path: 'members/:id',    component: MembersComponent}
         ]
 }];
 export const routing = RouterModule.forChild(routes);

@@ -1,30 +1,20 @@
 header {
     width: 100%;
-    background: linear-gradient(to right, #2a2388, #9556a4);
+    background: #3f51b5;
     position: fixed;
     top: 0;
     height: 60px !important;
-    opacity: .8;
-     z-index: 1000;
+    z-index: 1000;
+    color: hsla(0,0%,100%,.87);
+}
+    .mat-elevation-z6 {
+    box-shadow: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);
 }
 .top-profile li{
 	list-style-type:none;
 }
 .navbar-brand{
-    color:#fff;
-}
-.stylish-input-group .form-control {
-    border-right: 0;
-    box-shadow: 0 0 0;
-    border-color: #ccc;
-     border-radius: 50px 0px 0px 50px;
-}
-.stylish-input-group .input-group-addon {
-    background: white !important;
-}
-.input-group-addon {
-       border-radius: 0px 50px 50px 0px;
-
+  color: hsla(0,0%,100%,.87);
 }
 .stylish-input-group button {
     border: 0;

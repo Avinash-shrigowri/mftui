@@ -1,0 +1,60 @@
+<div class="container-fluid">
+  <div class="panel panel-default">
+    <div class="panel-heading">Groups List
+      <div class="pull-right"><button class="btn btn-info btn-sm" (click)="add()"><i class="fa fa-plus" ></i>&nbsp;Add</button></div>
+    </div>
+    <div class="panel-body">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th></th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let group of grouplists">
+            <td>{{group.name}}</td>
+            <td><button class="btn btn-sm btn-info" (click)="edit(group)">Edit</button></td>
+            <td><button class="btn btn-sm btn-danger" (click)="delete(group)">Delete</button></td>
+            <td><button class="btn btn-sm btn-info" (click)="view(group)">View</button></td>
+             <td><button class="btn btn-sm btn-info" (click)="member(group)">Members</button></td>
+          </tr>
+          
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div bsModal #lgModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" [config]="{backdrop: true}">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title pull-left">Add Group</h4>
+                <button type="button" class="close pull-right" (click)="lgModal.hide()" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+            </div>
+            <form  (ngSubmit)="adduser()" ngNativeValidate>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        
+                        <div class="form-group ">
+                        <div class="col-xs-12">
+                            <input class="form-control" type="text" required="" [(ngModel)]="groupmodel.name" name="name" placeholder="Name">
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="col-xs-12">
+                        <button class="btn   btn-primary" type="submit">Save</button>
+                        <!-- btn-info -->
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -11,6 +11,7 @@ export class PagesComponent implements OnInit {
   public toggleState = false;
   public isCollapsed: boolean = true;
   public menuitems: Object;
+  public pagename:string="Dashboard";
   constructor(private renderer: Renderer, private superadmin:Admin, private productadmin:ProductAdmin) { }
 
   ngOnInit() {
@@ -24,6 +25,18 @@ export class PagesComponent implements OnInit {
 
     this.toggleState = !this.toggleState;
   }
+public onTogglesub($event,item){
+    $event=item;
+  if (!$event.item.expanded) {
+        $event.item.expanded = true;
+      }
+     else {
+      $event.item.expanded = !$event.item.expanded;
+    
+    }
 
-
+}
+public getitem(item){
+  this.pagename=item.name;
+}
 }

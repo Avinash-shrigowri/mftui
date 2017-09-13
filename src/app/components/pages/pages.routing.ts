@@ -7,7 +7,7 @@ const routes: Routes = [{
       children: [
             { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
             { path: 'dashboard', loadChildren: 'app/components/pages/dashboard/dashboard.module#DashboardModule' },
-            { path: 'uploadfiles', loadChildren: 'app/components/pages/uploadfiles/uploadfiles.module#UploadfilesModule' },
+            { path: 'myspace', loadChildren: 'app/components/pages/myspace/myspace.module#MyspaceModule' },
             { path: 'groups', loadChildren: 'app/components/pages/groups/groups.module#GroupsModule' },
             { path: 'administration', loadChildren: 'app/components/pages/administration/administration.module#AdministrationModule' },
       ]

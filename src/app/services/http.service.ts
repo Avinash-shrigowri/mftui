@@ -52,6 +52,7 @@ export class HttpClient {
         });
         return this.http.post(url, formData, Object.assign({}, options, newOptions));
     }
+    
      PutFormData(url: string, body: any, options?: RequestOptionsArgs): Observable<Response> {
         let formData:FormData = new FormData();
         formData.append('file', body);

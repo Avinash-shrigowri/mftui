@@ -9,9 +9,9 @@ import { HttpClient } from './../../services/http.service';
 export class LoginService {
 
     constructor(private http: Http, private constants: AppConstants, private httpClient: HttpClient) {}
- 
+     private token ='Basic cm9vdEBsb2NhbGhvc3QubG9jYWxkb21haW46YWRtaW5saW5zaGFyZQ==';
    public postlogin(values): Observable<Response> {
-        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let headers = new Headers({ 'Content-Type': 'application/json' ,'':''});
         let options = new RequestOptions({
             headers: headers
         });
@@ -24,12 +24,24 @@ export class LoginService {
     
 
     
-  public postdemorequest(values: Object): Observable<Response> {
+    public postdemorequest(values: Object): Observable<Response> {
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({
             headers: headers
         });
         let url: string = '' + this.constants.baseUrl + this.constants.demoRequests;
+        let body = JSON.stringify(values);
+        return this.http.post(url, values, options)
+            
+    }
+
+    public postregister(values: Object): Observable<Response> {
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        headers.append('Authorization', this.token);
+        let options = new RequestOptions({
+            headers: headers
+        });
+        let url: string = '' + this.constants.baseUrl + this.constants.register;
         let body = JSON.stringify(values);
         return this.http.post(url, values, options)
             
