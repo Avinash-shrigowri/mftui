@@ -1,0 +1,71 @@
+<div class="confiramtion">
+    <section id="wrapper" class="confiramtion-container">
+        <div class="register-box" *ngIf="!logintoggle">
+            <div class="animation-element slide-right">
+                <form id="msform" class="form-material" (ngSubmit)="register()" ngNativeValidate>
+                    <fieldset>
+                        <h2 class="fs-title">Create your Organization</h2>
+                        
+                        <input type="text" name="name" placeholder="Organization Name" 
+                                [(ngModel)]="confirmModel.organizationdto.name" class="form-control" required>
+                        <input type="text" name="companyName" placeholder="Company Name" 
+                                [(ngModel)]="confirmModel.organizationdto.companyName" class="form-control" required>
+                        <input type="text" name="noOfEmployee" placeholder="No of Employees" 
+                                [(ngModel)]="confirmModel.organizationdto.noOfEmployee" class="form-control" required>
+                        <input type="text" name="location" placeholder="Search for Location" autocorrect="off" 
+                                autocapitalize="off" spellcheck="off" type="text" class="form-control" #search 
+                                [(ngModel)]="confirmModel.organizationdto.location" class="form-control" required>
+                        
+                        <div class="personNameFileds">                
+                            <select name="userSalutaion" placeholder="Your userSalutaion" [(ngModel)]="confirmModel.user1dto.salutaion" class="form-control salutation display-inline-block" required>
+                                <option value="Mr">Mr</option>
+                                <option value="Mrs">Mrs</option>
+                                <option value="Ms">Ms</option>
+                                <option value="Miss">Miss</option>
+                            </select>
+                            <input type="text" name="userFirstName" placeholder="First Name" [(ngModel)]="confirmModel.user1dto.firstName" class="form-control first-name display-inline-block" required>
+                            <input type="text" name="userMiddelName" placeholder="Middel Name" [(ngModel)]="confirmModel.user1dto.middelName" class="form-control middel-name display-inline-block" required>
+                            <input type="text" name="userLastName" placeholder="Last Name" [(ngModel)]="confirmModel.user1dto.lastName"class="form-control last-name display-inline-block" required>                
+                        </div>
+                        <input type="text" name="userPhoneNumber" placeholder="Phone Number" [(ngModel)]="confirmModel.user1dto.phoneNumber" class="form-control" required>
+                        <input type="email" name="userEmailId" placeholder="Email Address" [(ngModel)]="confirmModel.user1dto.emailId" class="form-control" required>
+                        <input type="password" name="userPassword" placeholder="Password" [(ngModel)]="confirmModel.user1dto.password"class="form-control" required>
+                        
+                        <input type="submit" name="next" class="next action-button" value="Create Organization">         
+                    </fieldset>            
+                </form>
+            <div class="clear"></div>
+            </div>
+        </div>
+    </section>
+    <div class="container-fluid" style="background:rgba(90, 81, 161, 0.78)">
+        <!-- background: linear-gradient(to right, #2a2388, #9556a4); -->
+        <div class="container">
+            <div class="col-md-4 col-xs-4 divh3">
+                <h3>Links</h3>
+                <ul class="footer-li">
+                    <li><a href="javascript::void()">About Us</a></li><br>
+                    <li><a href="javascript::void()">Contact Us</a></li><br>
+                    <li><a href="javascript::void()">FAQ</a></li><br>
+                </ul>
+            </div>
+            <div class="col-md-4 col-xs-4 divh3">
+                <h3>Follow us</h3>
+                <ul class="footer-li">
+                    <li><a href="javascript::void()">About Us</a></li><br>
+                    <li><a href="javascript::void()">Contact Us</a></li><br>
+                    <li><a href="javascript::void()">FAQ</a></li><br>
+                </ul>
+            </div>
+            <div class="col-md-4 col-xs-4 divh3">
+                <h3>Details</h3>
+                <ul class="footer-li">
+                    <li><a href="javascript::void()">Subscribe</a></li><br>
+                    <li><a href="javascript::void()">Community</a></li><br>
+                    <li><a href="javascript::void()">Blog</a></li><br>
+                    <li><a href="javascript::void()">Terms &amp; Condition</a></li><br>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

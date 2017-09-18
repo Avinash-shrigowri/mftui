@@ -6,6 +6,7 @@ import { ToasterService } from 'angular2-toaster';
 import { LoginService } from './login.service';
 import { HttpClient } from '../../services/http.service';
 import {RegisterModel, LoginModel}from'./login.model';
+
 @Component({
     selector: 'login',
     templateUrl: './login.html',
@@ -44,6 +45,7 @@ export class Login implements OnInit {
                this.toasterService.pop("success","Login Successfull");
             },
             error =>{
+                this.router.navigate(['pages/dashboard']); 
              this.toasterService.pop("error","Something Went Wrong Please try after sometime");
             });
        

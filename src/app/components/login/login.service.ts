@@ -9,18 +9,18 @@ import { HttpClient } from './../../services/http.service';
 export class LoginService {
 
     constructor(private http: Http, private constants: AppConstants, private httpClient: HttpClient) {}
-     private token ='Basic cm9vdEBsb2NhbGhvc3QubG9jYWxkb21haW46YWRtaW5saW5zaGFyZQ==';
-   public postlogin(values): Observable<Response> {
-        let headers = new Headers({ 'Content-Type': 'application/json' ,'':''});
-        let options = new RequestOptions({
-            headers: headers
-        });
-         let url: string = '' + this.constants.baseUrl + this.constants.login+'?user='+ values.emailId+'&password=' +values.password;
-         return this.httpClient.Get(url)
-            .map(this.extractData)
-            .catch(this.handleError);
-            
-    }
+    private token ='Basic cm9vdEBsb2NhbGhvc3QubG9jYWxkb21haW46YWRtaW5saW5zaGFyZQ==';
+    public postlogin(values): Observable<Response> {
+            let headers = new Headers({ 'Content-Type': 'application/json' ,'':''});
+            let options = new RequestOptions({
+                headers: headers
+            });
+            let url: string = '' + this.constants.baseUrl + this.constants.login+'?user='+ values.emailId+'&password=' +values.password;
+            return this.httpClient.Get(url)
+                .map(this.extractData)
+                .catch(this.handleError);
+                
+        }
     
 
     
@@ -48,7 +48,7 @@ export class LoginService {
     }
     
 
-     private extractData(res: Response) {
+    private extractData(res: Response) {
         let body = res.json();
         return body;
     }

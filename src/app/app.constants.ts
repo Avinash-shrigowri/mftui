@@ -1,6 +1,6 @@
 export class AppConstants {
 
-    public readonly baseUrl: string = 'http://192.168.0.100:8080/linshare/webservice/rest/user/';
+    public readonly baseUrl: string = 'http://192.168.0.103:8080/linshare/webservice/rest/user/';
    // public readonly baseUrl: string = 'http://192.168.1.14/linshare/webservice/rest/user/';
     public readonly upload: string = '/upload';
     public readonly download: string = '/download';
@@ -12,5 +12,6 @@ export class AppConstants {
     public readonly groupLists: string = 'threads/';
     public readonly entries: string = '/entries/';
     public readonly members: string = '/members/';
-    public readonly guests:string='guests';
+    public readonly guests:string = 'guests';
+    public readonly confirmation: string = 'v2/authentication/authorized';
 }

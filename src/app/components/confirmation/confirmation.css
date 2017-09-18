@@ -1,0 +1,340 @@
+
+.confiramtion{
+    background: url(../../../assets/img/theme/login-register.jpg) center center/cover no-repeat!important;
+}
+.confirmation-box {
+  
+    width: 500px;
+    margin: 3% auto 0;
+}
+
+#wrapper {
+    width: 100%;
+    padding: 23px;
+}
+
+#msform {
+    max-width: 600px;
+    margin: 20px auto;
+    text-align: center;
+    position: relative;
+}
+#msform fieldset {
+    background: white;
+    border: 0 none;
+    border-radius: 3px;
+    box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.1);
+    padding: 20px 30px;
+    box-sizing: border-box;
+    width: 90%;
+    margin: 0 5%;
+    /* position: absolute; */
+}
+#msform input, #msform textarea {
+    
+    /* border: 1px solid #ccc; */
+    border-radius: 3px;
+    margin-bottom: 18px;
+    width: 100%;
+    box-sizing: border-box;
+    /* font-family: montserrat; */
+    color: #2C3E50;
+    font-size: 13px;
+}
+#msform .action-button:hover, #msform .action-button:focus {
+    box-shadow: 0 0 0 2px white, 0 0 0 3px #5a51a1;
+}
+#msform .action-button {
+    width: 150px;
+    background: #5a51a1;
+    font-weight: bold;
+    color: white;
+    border: 0 none;
+    border-radius: 1px;
+    cursor: pointer;
+    padding: 10px 5px;
+    margin: 10px 5px;
+}
+
+.fs-title {
+    font-size: 15px;
+    text-transform: uppercase;
+    color: #2C3E50;
+    margin-bottom: 10px;
+}
+.white-box {
+    margin-bottom: 15px;
+    background: white;
+    border: 0 none;
+    border-radius: 3px;
+    box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.1);
+    padding: 20px 30px;
+    box-sizing: border-box;
+}
+.white-box .box-title {
+    margin: 0 0 12px;
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
+.m-b-20 {
+    margin-bottom: 20px!important;
+}
+
+.form-material .form-group {
+    overflow: hidden;
+
+}
+.form-material .form-control {
+    background-color: rgba(0, 0, 0, 0);
+    background-position: center bottom, center calc(99%);
+    background-repeat: no-repeat;
+    background-size: 0 2px, 100% 1px;
+    padding: 0;
+    transition: background 0s ease-out 0s
+}
+.form-material .form-control,
+.form-material .form-control.focus,
+.form-material .form-control:focus {
+    background-image: linear-gradient(#5a51a1, #5a51a1), linear-gradient(rgba(120, 130, 140, .13), rgba(120, 130, 140, .13));
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    float: none
+}
+.form-material .form-control.focus,
+.form-material .form-control:focus {
+    background-size: 100% 2px, 100% 1px;
+    outline: 0;
+    transition-duration: .3s
+}
+.form-bordered .form-group {
+    border-bottom: 1px solid rgba(120, 130, 140, .13);
+    padding-bottom: 20px
+}
+.pull-left {
+    float: left;
+}
+.form-group {
+    margin-bottom:30px;
+}
+
+
+.checkbox {
+    padding-left: 20px;
+}
+
+.p-t-0 {
+    padding-top: 0!important;
+}
+.checkbox {
+    padding-left: 20px
+}
+.checkbox label {
+    display: inline-block;
+    padding-left: 5px;
+    position: relative
+}
+.checkbox label::before {
+    -o-transition: .3s ease-in-out;
+    -webkit-transition: .3s ease-in-out;
+    background-color: #fff;
+    border-radius: 1px;
+    border: 1px solid rgba(120, 130, 140, .13);
+    content: "";
+    display: inline-block;
+    height: 17px;
+    left: 0;
+    margin-left: -20px;
+    position: absolute;
+    transition: .3s ease-in-out;
+    width: 17px;
+    outline: 0!important
+}
+.checkbox label::after {
+    color: #2b2b2b;
+    display: inline-block;
+    font-size: 11px;
+    height: 16px;
+    left: 0;
+    margin-left: -20px;
+    padding-left: 3px;
+    padding-top: 1px;
+    position: absolute;
+    top: 0;
+    width: 16px
+}
+.checkbox input[type=checkbox] {
+    cursor: pointer;
+    opacity: 0;
+    z-index: 1;
+    outline: 0!important
+}
+.checkbox input[type=checkbox]:disabled+label {
+    opacity: .65
+}
+.checkbox input[type=checkbox]:focus+label::before {
+    outline-offset: -2px;
+    outline: 0;
+    outline: dotted thin
+}
+.checkbox input[type=checkbox]:checked+label::after {
+    content: "\f00c";
+    font-family: FontAwesome
+}
+.checkbox input[type=checkbox]:disabled+label::before {
+    background-color: #e4e7ea;
+    cursor: not-allowed
+}
+.checkbox.checkbox-circle label::before {
+    border-radius: 50%
+}
+.checkbox.checkbox-inline {
+    margin-top: 0
+}
+.checkbox.checkbox-single label {
+    height: 17px
+}
+.checkbox-primary input[type=checkbox]:checked+label::before {
+    background-color: #5a51a1;
+    border-color: #5a51a1
+}
+.checkbox-primary input[type=checkbox]:checked+label::after {
+    color: #fff
+}
+.text-dark {
+    color: #686868!important;
+}
+.btn-primary,
+.btn-primary.disabled {
+    background: #5a51a1;
+    border: 1px solid #5a51a1;
+    border-radius: 0px;
+}
+.btn-primary.disabled.focus,
+.btn-primary.disabled:focus,
+.btn-primary.disabled:hover,
+.btn-primary.focus,
+.btn-primary:focus,
+.btn-primary:hover {
+    background: #9556a4;
+    opacity: .8;
+    border: 1px solid #9556a4
+}
+.btn-primary.btn-outline {
+    color: #ab8ce4;
+    background-color: #fff
+}
+
+.btn-danger.btn-outline:hover,
+.btn-info.btn-outline:hover,
+.btn-primary.btn-outline:hover,
+.btn-success.btn-outline:hover,
+.btn-warning.btn-outline:hover {
+    color: #fff
+}
+.btn-primary.active.focus,
+.btn-primary.active:focus,
+.btn-primary.active:hover,
+.btn-primary.focus,
+.btn-primary.focus:active,
+.btn-primary:active:focus,
+.btn-primary:active:hover,
+.btn-primary:focus,
+.open>.dropdown-toggle.btn-primary.focus,
+.open>.dropdown-toggle.btn-primary:focus,
+.open>.dropdown-toggle.btn-primary:hover {
+    background-color: #2a2388;
+    border: 1px solid #2a2388
+}
+.btn-1b.btn-primary:after,
+.btn-1c.btn-primary:after,
+.btn-1d.btn-primary:after,
+.btn-1e.btn-primary:after,
+.btn-1f.btn-primary:after {
+    background: #9675ce
+}
+.btn-primary.btn-outline {
+    color: #ab8ce4;
+    background-color: #fff
+}
+.divh3 h3 {
+    color: #fff !important;
+}
+.footer-li {
+    list-style-type: none;
+    padding: 0;
+}
+.footer-li{
+	list-style-type:none;
+	padding: 0;
+}
+.footer-li li a{
+	color:#fff;
+	
+	transition: 0.3s
+}
+.footer-li li a:hover{
+	color:#CDDC39;
+	margin-left:3px;
+    text-decoration: none;
+}
+.cursor{
+	cursor:pointer;
+}
+.fa-facebook {
+    color: white;
+    width: 30px;
+    height: 30px;
+    background: #3b5998;
+    border-radius: 50px;
+    line-height: 30px;
+    cursor: pointer;
+}
+.fa-twitter {
+    color: white;
+    width: 30px;
+    height: 30px;
+    background: #1da1f2;
+    border-radius: 50px;
+    line-height: 30px;
+    cursor: pointer;
+}
+.fa-font {
+    font-size: 20px;
+    margin: 0 5px;
+}
+.fa-linkedin {
+    color: white;
+    width: 30px;
+    height: 30px;
+    background: #0077b5;
+    border-radius: 50px;
+    line-height: 30px;
+    cursor: pointer;
+}
+
+.personNameFileds {    
+    width: 100%;    
+}
+
+.personNameFileds .salutation {
+    width:  10% !important;
+    min-width: 50px;
+}
+.personNameFileds input[type="text"] {
+    width:  29% !important;
+}
+
+@media only screen and (max-width: 768px){
+    .confirmation-box {
+        width:auto;
+    }
+    #msform fieldset {
+    
+        width: 100%;
+        margin: 0;
+        /* position: absolute; */
+    }
+}

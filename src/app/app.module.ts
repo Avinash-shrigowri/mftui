@@ -15,7 +15,9 @@ import { Login } from './components/login/login.component';
 import { LoginService } from './components/login/login.service';
 import { EllipsisPipe } from 'app/pipes/ellipsis.pipe';
 import { FilesizePipe } from 'app/pipes/filesize.pipe';
-
+import { Confirmation } from './components/confirmation/confirmation.component';
+import { ConfirmationService } from './components/confirmation/confirmation.service';
+import { AgmCoreModule } from '@agm/core';
 
 @NgModule({
 
@@ -27,14 +29,18 @@ import { FilesizePipe } from 'app/pipes/filesize.pipe';
     AppRoutingModule,
     ToasterModule,
     NgProgressModule,
-    Ng2Webstorage
- 
+    Ng2Webstorage,
+    AgmCoreModule.forRoot({
+      apiKey: "AIzaSyCx5j0uyKrmymKlu4MkQfbOwArAg5IKH24",
+      libraries: ["places"]
+    }), 
   ],
   declarations: [
     AppComponent,
     EllipsisPipe,
     Login,
-    FilesizePipe,  
+    FilesizePipe,
+    Confirmation,  
   ],
   providers: [
     AppConstants,
@@ -42,7 +48,7 @@ import { FilesizePipe } from 'app/pipes/filesize.pipe';
     SharedService,
     ToasterService,
     LoginService,
-    
+    ConfirmationService    
 
   ],
   bootstrap: [AppComponent]
